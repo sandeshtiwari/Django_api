@@ -5,7 +5,7 @@ from movierater.api.models import Movie, Rating
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('username', 'email')
+        fields = ('id','username', 'email')
 
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
