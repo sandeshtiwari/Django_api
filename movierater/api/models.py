@@ -16,6 +16,10 @@ class Movie(models.Model):
         else:
             return 0
 
+    def num_of_rating(self):
+        all_ratings = Rating.objects.filter(movie=self)
+        return len(all_ratings)
+
 class Rating(models.Model):
     stars = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
